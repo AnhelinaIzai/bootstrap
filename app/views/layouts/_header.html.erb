@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="/">Logo</a>
+    
+    <ul class="nav navbar-nav ml-auto">
+    	<%if !user_signed_in? %>
+    	
+        <li class="glyphicon glyphicon-user"><%= link_to "Sing up",new_user_registration_path%></li>
+
+        <li class="glyphicon glyphicon-user"><%= link_to "Login", new_user_session_path%></li>
+        <%else%>
+      
+        <li class="glyphicon glyphicon-user"><%= link_to "Log out",  destroy_user_session_path, method: :delete%></li>
+    <%end%>
+    </ul>
+</nav>
+
