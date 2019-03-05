@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-sm-12 text-center">
+	<%= link_to "New post", new_post_path %> |
+	<%= link_to "New photo" %>
+	 </div>
+ </div>
+<hr>
+
+<% @posts.each do |post|%>
+	<div class="card">
+   		<div class="card-body">
+			<h5 class="card-header"><%= link_to post.title, post_path(post.id)%></h5>
+				<%= raw post.body %>
+			<footer class="blockquote-footer">User: <%= post.user.email%> add post at <%= post.created_at%></footer>
+		</div>
+	</div>
+<%end%>
+
+<div class = "row">
+	<div class="col-sm-12 text-center">
+    	<div class="digg_pagination">
+     		<div class="page_info">
+      			<%= page_entries_info @posts %>
+    		</div>
+    			<%= will_paginate @posts, :container => false %>
+  		</div>
+  	</div>
+</div>
+
+  
